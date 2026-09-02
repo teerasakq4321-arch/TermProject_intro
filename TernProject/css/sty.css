@@ -9,6 +9,7 @@ body {
 .header {
     grid-area: header;
     height: 200px;
+    padding: 20px;
 }
 
 .grid-container {
@@ -25,7 +26,7 @@ body {
 .left,
 .right,
 .menu {
-    padding: 20px;
+    height: 200px;
 }
 
 .top {
@@ -38,10 +39,12 @@ body {
 
 .left {
     grid-area: left;
+    width: auto;
 }
 
 .right {
     grid-area: right;
+    width: 100%;
 }
 
 .footer {
