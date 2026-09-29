@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ใบสมัครนักศึกษาใหม่ | มจพ.</title>
+
+
+    <link rel="stylesheet" href="css/test.css">
+</head>
+<body>
+
+  <!-- ===================== ส่วนหัว ===================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button>
+         <a href="index.html" class="home-button">กลับหน้าแรก</a>
+       </button>
+        <a href="index.html">
+            <img src="img/logo.jpg">
+        </a>
+      <div class="header-text">
+        <h1>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</h1>
+        <p>ระบบรับสมัครนักศึกษาใหม่ · ประจำปีการศึกษา 2569</p>
+      </div>
+      
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- ============== แผงข้อมูลใบสมัคร (คล้ายกรอบชื่อแบบแปลนทางวิศวกรรม) ============== -->
+    <section class="title-block" aria-label="ข้อมูลใบสมัคร">
+      <div class="photo-upload">
+        <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" class="photo-input">
+        <label for="photo">
+          <span class="photo-icon" aria-hidden="true">+</span>
+          <span>อัปโหลดรูปถ่าย</span>
+          <span class="photo-hint">ขนาด 1 นิ้ว พื้นหลังสุภาพ</span>
+        </label>
+      </div>
+
+      <dl class="meta-grid">
+        <div>
+          <dt>เลขที่ใบสมัคร</dt>
+          <dd>00-000-000000</dd>
+        </div>
+        <div>
+          <dt>วันที่ยื่นใบสมัคร</dt>
+          <dd>จะกำหนดเมื่อกดส่งใบสมัคร</dd>
+        </div>
+        <div>
+          <dt>สถานะ</dt>
+          <dd>ร่างใบสมัคร</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ===================== แบบฟอร์ม ===================== -->
+    <form class="application-form" action="#" method="post">
+
+      <!-- 1. ข้อมูลส่วนตัว -->
+      <fieldset class="form-section">
+        <legend><span class="section-index">1</span> ข้อมูลส่วนตัว</legend>
+
+        <div class="field-grid">
+          <div class="field field-sm">
+            <label for="prefix">คำนำหน้า <span class="req">*</span></label>
+            <select id="prefix" name="prefix" required>
+              <option value="">เลือก</option>
+              <option value="nai">นาย</option>
+              <option value="nangsao">นางสาว</option>
+              <option value="nang">นาง</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="firstname-th">ชื่อ - นามสกุล (ภาษาไทย) <span class="req">*</span></label>
+            <input type="text" id="firstname-th" name="firstname_th" placeholder="ชื่อ นามสกุล" required>
+          </div>
+
+          <div class="field">
+            <label for="firstname-en">ชื่อ - นามสกุล (ภาษาอังกฤษ) <span class="req">*</span></label>
+            <input type="text" id="firstname-en" name="firstname_en" placeholder="Firstname Lastname" required>
+          </div>
+
+          <div class="field">
+            <label for="citizen-id">เลขบัตรประจำตัวประชาชน <span class="req">*</span></label>
+            <input type="text" id="citizen-id" name="citizen_id" inputmode="numeric" maxlength="13" placeholder="เลข 13 หลัก" required>
+          </div>
+
+          <div class="field field-sm">
+            <label for="birthdate">วันเดือนปีเกิด <span class="req">*</span></label>
+            <input type="date" id="birthdate" name="birthdate" required>
+          </div>
+
+          <div class="field field-sm">
+            <label for="gender">เพศ <span class="req">*</span></label>
+            <select id="gender" name="gender" required>
+              <option value="">เลือก</option>
+              <option value="male">ชาย</option>
+              <option value="female">หญิง</option>
+              <option value="other">ไม่ระบุ</option>
+            </select>
+          </div>
+
+          <div class="field field-sm">
+            <label for="nationality">สัญชาติ</label>
+            <input type="text" id="nationality" name="nationality" value="ไทย">
+          </div>
+
+          <div class="field field-sm">
+            <label for="religion">ศาสนา</label>
+            <input type="text" id="religion" name="religion">
+          </div>
+
+          <div class="field">
+            <label for="phone">เบอร์โทรศัพท์ <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="0X-XXXX-XXXX" required>
+          </div>
+
+          <div class="field">
+            <label for="email">อีเมล <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+          </div>
+
+          <div class="field field-wide">
+            <label for="address">ที่อยู่ตามทะเบียนบ้าน <span class="req">*</span></label>
+            <textarea id="address" name="address" rows="2" placeholder="บ้านเลขที่ ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด รหัสไปรษณีย์" required></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 2. ข้อมูลการศึกษา -->
+      <fieldset class="form-section">
+        <legend><span class="section-index">2</span> ข้อมูลการศึกษา</legend>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="school">สถานศึกษาที่สำเร็จ / กำลังศึกษา <span class="req">*</span></label>
+            <input type="text" id="school" name="school" placeholder="ชื่อโรงเรียน / วิทยาลัย" required>
+          </div>
+
+          <div class="field field-sm">
+            <label for="study-plan">แผนการเรียน <span class="req">*</span></label>
+            <select id="study-plan" name="study_plan" required>
+              <option value="">เลือก</option>
+              <option value="sci-math">วิทยาศาสตร์ - คณิตศาสตร์</option>
+              <option value="arts-math">ศิลป์ - คำนวณ</option>
+              <option value="arts-lang">ศิลป์ - ภาษา</option>
+              <option value="voc">ประกาศนียบัตรวิชาชีพ (ปวช.)</option>
+              <option value="other">อื่น ๆ</option>
+            </select>
+          </div>
+
+          <div class="field field-sm">
+            <label for="gpax">เกรดเฉลี่ยสะสม (GPAX) <span class="req">*</span></label>
+            <input type="number" id="gpax" name="gpax" step="0.01" min="0" max="4" placeholder="0.00" required>
+          </div>
+
+          <div class="field field-sm">
+            <label for="grad-year">ปีการศึกษาที่จบ <span class="req">*</span></label>
+            <input type="number" id="grad-year" name="grad_year" min="2500" max="2569" placeholder="2569" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 3. สาขาที่สมัคร -->
+      <fieldset class="form-section">
+        <legend><span class="section-index">3</span> สาขาที่ต้องการสมัคร</legend>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="round">รอบการรับสมัคร <span class="req">*</span></label>
+            <select id="round" name="round" required>
+              <option value="">เลือก</option>
+              <option value="1">รอบที่ 1 · Portfolio</option>
+              <option value="2">รอบที่ 2 · โควตา</option>
+              <option value="3">รอบที่ 3 · Admission</option>
+              <option value="4">รอบที่ 4 · Direct Admission</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="degree">ระดับการศึกษา <span class="req">*</span></label>
+            <select id="degree" name="degree" required>
+              <option value="">เลือก</option>
+              <option value="bachelor">ปริญญาตรี</option>
+              <option value="bachelor-continuing">ปริญญาตรีต่อเนื่อง</option>
+              <option value="high-vocational">ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</option>
+              <option value="master">ปริญญาโท</option>
+              <option value="doctoral">ปริญญาเอก</option>
+            </select>
+          </div>
+
+          <div class="field field-wide">
+            <label for="faculty">คณะ <span class="req">*</span></label>
+            <select id="faculty" name="faculty" required>
+              <option value="">เลือกคณะ</option>
+              <option value="industrial-education">คณะครุศาสตร์อุตสาหกรรม</option>
+              <option value="applied-science">คณะวิทยาศาสตร์ประยุกต์</option>
+              <option value="engineering">คณะวิศวกรรมศาสตร์</option>
+              <option value="industrial-technology-management">คณะเทคโนโลยีและการจัดการอุตสาหกรรม</option>
+              <option value="agro-industry">คณะอุตสาหกรรมเกษตร</option>
+              <option value="information-technology">คณะเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</option>
+              <option value="business-administration">คณะบริหารธุรกิจ</option>
+              <option value="applied-arts">คณะศิลปศาสตร์ประยุกต์</option>
+              <option value="industrial-technology-college">วิทยาลัยเทคโนโลยีอุตสาหกรรม</option>
+              <option value="tggs">บัณฑิตวิทยาลัยวิศวกรรมศาสตร์นานาชาติสิรินธร ไทย-เยอรมัน</option>
+            </select>
+          </div>
+
+          <div class="field field-wide">
+            <label for="program">สาขาวิชา <span class="req">*</span></label>
+            <input type="text" id="program" name="program" placeholder="เช่น วิศวกรรมคอมพิวเตอร์, เทคโนโลยีสารสนเทศ" required>
+          </div>
+
+          <div class="field field-sm">
+            <label for="campus">วิทยาเขต <span class="req">*</span></label>
+            <select id="campus" name="campus" required>
+              <option value="">เลือก</option>
+              <option value="bangsue">กรุงเทพฯ (บางซื่อ)</option>
+              <option value="prachinburi">ปราจีนบุรี</option>
+              <option value="rayong">ระยอง</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 4. เอกสารแนบ -->
+      <fieldset class="form-section">
+        <legend><span class="section-index">4</span> เอกสารแนบ</legend>
+
+        <div class="field-grid">
+          <div class="field file-field">
+            <label for="doc-transcript">ใบแสดงผลการเรียน (ปพ.1) <span class="req">*</span></label>
+            <input type="file" id="doc-transcript" name="doc_transcript" accept=".pdf,.jpg,.png" required>
+          </div>
+
+          <div class="field file-field">
+            <label for="doc-id">สำเนาบัตรประจำตัวประชาชน <span class="req">*</span></label>
+            <input type="file" id="doc-id" name="doc_id" accept=".pdf,.jpg,.png" required>
+          </div>
+
+          <div class="field file-field">
+            <label for="doc-house">สำเนาทะเบียนบ้าน</label>
+            <input type="file" id="doc-house" name="doc_house" accept=".pdf,.jpg,.png">
+          </div>
+
+          <div class="field file-field">
+            <label for="doc-portfolio">แฟ้มสะสมผลงาน (ถ้ามี)</label>
+            <input type="file" id="doc-portfolio" name="doc_portfolio" accept=".pdf,.jpg,.png">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ยืนยันและส่งใบสมัคร -->
+      <div class="form-consent">
+        <label class="checkbox-line">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span>ข้าพเจ้าขอรับรองว่าข้อมูลที่กรอกข้างต้นถูกต้องและเป็นความจริงทุกประการ</span>
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button type="reset" class="btn btn-ghost">ล้างข้อมูล</button>
+        <button type="submit" class="btn btn-primary">ส่งใบสมัคร</button>
+      </div>
+
+    </form>
+  </main>
+
+  <div class="footer">
+    <!-- ฝั่งซ้าย: โลโก้ + ชื่อองค์กร -->
+    <img src="img/logo.jpg" alt="Logo" class="footer-logo">
+    <div class="footer-text">
+        <p class="brand-title">รับสมัครนักศึกษา</p>
+        <p class="brand-sub">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+    </div>
+
+    <!-- ฝั่งขวา: ที่อยู่ + ข้อมูลติดต่อ -->
+    <div class="footer-right">
+        <div class="info-group">
+            <p class="info-title">ที่อยู่</p>
+            <p class="info-detail">129 หมู่ที่ 21 ตำบลเนินหอม<br>อำเภอเมือง จังหวัดปราจีนบุรี 25230</p>
+        </div>
+        <div class="info-group">
+            <p class="info-title">ติดต่อสอบถาม</p>
+            <p class="info-detail">โทรสาร: 037-217-333</p>
+
+</body>
+</html>

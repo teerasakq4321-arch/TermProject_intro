@@ -1,0 +1,448 @@
+/* =========================================================
+   KMUTNB · ใบสมัครนักศึกษาใหม่
+   โทนดีไซน์: ขาว-ส้ม ตามอัตลักษณ์ตราสัญลักษณ์ มจพ.
+   ========================================================= */
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  /* สี */
+  --orange-500: #F5821F;  /* สีหลัก ปุ่ม / จุดเน้น */
+  --orange-600: #DD6E10;  /* สีหลักตอน hover */
+  --red-500: #E1362F;     /* สีรอง เน้นจุดสำคัญ */
+  --navy-900: #1B2A41;    /* หัวข้อ / ข้อความเข้ม */
+  --gray-600: #5B6472;    /* ข้อความรอง */
+  --gray-100: #F4F5F6;    /* พื้นหลังบล็อกอ่อน */
+  --line-200: #E3E5E8;    /* เส้นบาง / ขอบ */
+  --white: #FFFFFF;
+
+  /* ตัวอักษร */
+  --font-display: 'Chakra Petch', 'IBM Plex Sans Thai', sans-serif;
+  --font-body: 'IBM Plex Sans Thai', sans-serif;
+
+  /* ระยะ */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --content-width: 780px;
+}
+
+/* ---------- 2. Reset พื้นฐาน ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--white);
+  color: var(--navy-900);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, legend {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+}
+
+a {
+  color: var(--orange-500);
+}
+
+/* โฟกัสที่มองเห็นได้ชัดเจนสำหรับคีย์บอร์ด */
+:focus-visible {
+  outline: 2px solid var(--orange-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* ---------- 3. ส่วนหัว (site-header) ---------- */
+.site-header {
+  background: var(--white);
+  color: var(--navy-900);
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line-200);
+  position: relative;
+}
+
+.header-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ตราสัญลักษณ์ตัวอักษร โทนส้ม-แดงตามโลโก้ มจพ. */
+.header-mark {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background: var(--white);
+  border: 2px solid var(--orange-500);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--orange-500);
+}
+
+.header-text h1 {
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--navy-900);
+}
+
+.header-text p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--gray-600);
+}
+
+/* ไม่ใช้เครื่องหมายมุมแบบเขียนแบบในธีมนี้ */
+.site-header::before,
+.site-header::after {
+  content: none;
+}
+
+/* ---------- 4. โครงหน้าหลัก ---------- */
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  background: var(--gray-100);
+}
+
+/* ---------- 5. กรอบชื่อใบสมัคร (title-block) ---------- */
+.title-block {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  background: var(--white);
+  border: 1px solid var(--line-200);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 6px rgba(27, 42, 65, 0.06);
+}
+
+.photo-upload {
+  position: relative;
+}
+
+.photo-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.photo-upload label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 140px;
+  border: 2px dashed var(--orange-500);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  color: var(--gray-600);
+  font-size: 12px;
+  padding: 8px;
+  background: var(--white);
+}
+
+.photo-icon {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--orange-500);
+  line-height: 1;
+}
+
+.photo-hint {
+  font-size: 11px;
+  color: var(--gray-600);
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0;
+  align-content: center;
+}
+
+.meta-grid dt {
+  font-size: 12px;
+  color: var(--gray-600);
+  margin-bottom: 4px;
+}
+
+.meta-grid dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--orange-500);
+}
+
+/* ---------- 6. ส่วนของแบบฟอร์ม ---------- */
+.form-section {
+  border: none;
+  border-top: 1px solid var(--line-200);
+  padding: 28px 0;
+  margin: 0;
+  background: transparent;
+}
+
+.form-section:first-of-type {
+  border-top: none;
+}
+
+.form-section legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: var(--navy-900);
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.section-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--orange-500);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-sm {
+  grid-column: span 1;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 14px;
+  color: var(--navy-900);
+}
+
+.req {
+  color: var(--red-500);
+}
+
+/* ---------- 7. Input, select, textarea ---------- */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--navy-900);
+  background: var(--white);
+  border: 1px solid var(--line-200);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--orange-500);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 56px;
+}
+
+/* ปุ่มอัปโหลดไฟล์เอกสาร */
+.file-field input[type="file"] {
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+/* ---------- 8. ยืนยันข้อมูลและปุ่มส่ง ---------- */
+.form-consent {
+  padding: 24px 0 0;
+}
+
+.checkbox-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--gray-600);
+}
+
+.checkbox-line input {
+  margin-top: 3px;
+  accent-color: var(--orange-500);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 24px;
+}
+
+.btn {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  padding: 12px 28px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-ghost {
+  background: var(--white);
+  border-color: var(--line-200);
+  color: var(--navy-900);
+}
+
+.btn-ghost:hover {
+  border-color: var(--orange-500);
+  color: var(--orange-500);
+}
+
+.btn-primary {
+  background: var(--orange-500);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--orange-600);
+}
+
+/* ---------- 9. ส่วนท้าย ---------- */
+.site-footer {
+  background: var(--white);
+  color: var(--gray-600);
+  text-align: center;
+  font-size: 13px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--line-200);
+}
+
+/* ---------- 10. Responsive ---------- */
+@media (max-width: 640px) {
+  .title-block {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-sm,
+  .field-wide {
+    grid-column: 1 / -1;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+<!---->
+.footer {
+    grid-area: footer;
+    display: flex;
+    align-items: center;           /* จัดองค์ประกอบให้อยู่กึ่งกลางแนวตั้ง */
+    gap: 20px;                     /* ระยะห่างระหว่างโลโก้กับตัวหนังสือ */
+    padding: 25px 40px;            /* พื้นที่ว่างรอบด้าน */
+    background-color: #ffffff;
+    border-top: 3px solid #e65100; /* เพิ่มเส้นสีส้ม/เทา ด้านบน footer ให้ดูมีขอบเขต */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* เงานุ่มๆ ด้านบน */
+}
+
+/* 2. คุมขนาดรูปโลโก้ไม่ให้สูงล้นหรือยืดเบี้ยว */
+.footer-logo {
+    height: 70px;                  /* ปรับความสูงโลโก้ตามต้องการ */
+    width: auto;
+    object-fit: contain;
+}
+
+/* 3. ตกแต่งข้อความชื่อมหาวิทยาลัย */
+.footer-text p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.brand-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e65100;                /* สีส้มไฮไลท์ */
+}
+
+.brand-sub {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* 4. จัดกลุ่มฝั่งขวา (ดันไปชิดขวาสุด) */
+.footer-right {
+    display: flex;
+    margin-left: auto;             /* ดันกลุ่มนี้ไปขวาสุด */
+    gap: 40px;                     /* ระยะห่างระหว่างคอลัมน์ที่อยู่กับเบอร์โทร */
+}
+
+/* 5. แต่งหัวข้อและรายละเอียดข้อมูลติดต่อ */
+.info-group p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.info-title {
+    font-weight: bold;
+    font-size: 15px;
+    color: #222;
+    margin-bottom: 4px !important; /* เว้นระยะห่างลงมาจากหัวข้อเล็กน้อย */
+}
